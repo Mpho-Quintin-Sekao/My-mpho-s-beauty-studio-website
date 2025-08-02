@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bliss Hair Studio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <div id="header">
+            <img src="images/logo.jpg" style= "width:120px; height:auto;"/>
+       
+</head>
+<body>
+
+<!-- Floating Chat Icon -->
+<div id="chat-icon" onclick="toggleChat()">
+  💬
+</div>
+
+<!-- Chat Box (Initially Hidden) -->
+<div id="chat-container" style="display: none;">
+  <div id="chat-header">💇‍♀ MPHO'S Beauty Studio</div>
+  <div id="chat-box">
+    <div class="chat-message bot">Hi there! 👋 Welcome to MPHO'S Beauty Studio. How can I help you today?</div>
+  </div>
+  <input type="text" id="user-input" placeholder="Type your message..." />
+  <button onclick="sendMessage()">Send</button>
+</div>
+
+  <header>
+    <h1>MPHO'S Beauty Studio</h1>
+    <p>Where style meets sophistication</p>
+     </div>
+        <div id="tabs-top">
+            <a href="bookings.html" id="bookings-link" style= "color: green; font-weight: bold; font-size: 24px; display: block; text-align: center;">BOOKINGS</a>
+        </div>
+  </header>
+
+  <section class="services">
+    <h2>Our Services</h2>
+    <div class="service-card">
+      <h3>Women's Haircut</h3>
+      <p>Classic trims, Braids or fresh styles to match your personality.</p>
+    </div>
+    <div class="service-card">
+      <h3>Men's Grooming</h3>
+      <p>Sharp cuts, beard trims, and tailored style advice.</p>
+    </div>
+    <div class="service-card">
+      <h3>Nails</h3>
+      <p>Vibrant hues and subtle tones crafted by experts.</p>
+    </div>
+     <div class="service-card">
+      <h3>Eyelash extension</h3>
+      <p>Lash extension styles for Different Eye Shapes: Finding Your Fit</p>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="images/grooming.jpg" alt="Style 1">
+      <img src="images/hair.jpg" alt="Style 2">
+      <img src="images/nails.jpg" alt="Style 3">
+        <img src="images/eyelash.webp" alt="Style 3">
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <blockquote>
+      "Absolutely love my new look! The team was amazing and professional." – MPHO.
+    </blockquote>
+    <blockquote>
+      "Super friendly staff and my fade is always on point!" – Zanele K.
+    </blockquote>
+  </section>
+
+  <section class="contact">
+    <h2>Book Your Appointment</h2>
+    <p>Call us: 0744929312</p>
+    <p>Email: mphosekao@gmail.com</p>
+  </section>
+
+  <section class="location">
+    <h2>Visit Us</h2>
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps?q=Johannesburg+South+Africa&output=embed" 
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Beauty Studio. All rights reserved.</p>
+  </footer>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/27744929312" class="whatsapp" target="_blank" aria-label="Chat on WhatsApp">
+    💬 Chat with us
+  </a>
+  
+<script>
+  setInterval(function() {
+    const link = document.getElementById("bookings-link");
+    link.style.color = (link.style.color === "green") ? "red" : "green";
+  }, 500); // changes color every 0.5 seconds
+
+
+  function toggleChat() {
+    const chat = document.getElementById("chat-container");
+    chat.style.display = chat.style.display === "none" ? "block" : "none";
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("user-input");
+    const chatBox = document.getElementById("chat-box");
+    const userText = input.value.trim();
+    if (userText === "") return;
+
+    const userMessage = document.createElement("div");
+    userMessage.className = "chat-message user";
+    userMessage.textContent = userText;
+    chatBox.appendChild(userMessage);
+
+    const botMessage = document.createElement("div");
+    botMessage.className = "chat-message bot";
+
+    if (userText.toLowerCase().includes("haircut")) {
+      botMessage.textContent = "We offer stylish women's haircuts and men's grooming. Would you like to book an appointment?";
+    } else if (userText.toLowerCase().includes("nails")) {
+      botMessage.textContent = "Our nail technicians are ready to pamper you! 💅 What style are you interested in?";
+    } else if (userText.toLowerCase().includes("eyelash")) {
+      botMessage.textContent = "We specialize in eyelash extensions. Classic, volume, or hybrid—what's your preference?";
+    } else {
+      botMessage.textContent = "Thanks for reaching out! We offer haircuts, grooming, nails, and eyelash extensions. How can I assist you further?";
+    }
+
+    chatBox.appendChild(botMessage);
+    chatBox.scrollTop = chatBox.scrollHeight;
+    input.value = "";
+  }
+  
+</script>
+
+</body>
+</html>
